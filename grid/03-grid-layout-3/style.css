@@ -7,7 +7,7 @@
   text-align: center;
   display: grid;
   gap: 4px;
-  grid-template: [header] 2fr [nav] 1fr [main] 10fr [footer] 1fr / [sidebar] 1fr [main] 4fr;
+  grid-template-columns: [sidebar] 1fr [text_cards] 4fr;
   grid-template-areas: "header header"
   "sidebar nav"
   "sidebar article"
@@ -41,6 +41,7 @@
 .menu ul,
 .menu li {
   font-size: 16px;
+  list-style-type: none;
 }
 
 .sidebar {
@@ -76,14 +77,23 @@
   grid-area: nav;
 }
 
+.nav > ul {
+  display: grid;
+  grid-template: 1fr / repeat(3, 1fr);
+}
+
 .nav ul li {
   font-size: 16px;
   text-transform: uppercase;
+  list-style-type: none;
 }
 
 .article {
   background-color: #bccbde;
   grid-area: article;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
 }
 
 .article p {
@@ -97,6 +107,7 @@
   background-color: #FFFFFF;
   color: black;
   text-align: center;
+  height: 200px;
 }
 
 .card p {
